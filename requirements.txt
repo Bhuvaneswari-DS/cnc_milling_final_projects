@@ -10,7 +10,9 @@ os
 io
 json
 warnings
-
+pickle
+fpdf
+base64
 
 
 
