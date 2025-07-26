@@ -1,4 +1,3 @@
-Most needed Libraries Used:
 numpy
 pandas
 matplotlib
@@ -7,38 +6,12 @@ tensorflow
 scikit-learn
 joblib
 streamlit
+os
+io
+json
+warnings
 
-📦 Core Libraries:
-numpy
 
-pandas
 
-matplotlib.pyplot
 
-seaborn
 
-🧠 Machine Learning & Deep Learning:
-tensorflow.keras.models (for loading the model)
-
-tensorflow.keras.layers (Conv1D, Dense, Dropout, Flatten, etc.)
-
-sklearn.model_selection (train_test_split)
-
-sklearn.metrics (accuracy_score, classification_report)
-
-sklearn.preprocessing (LabelEncoder, StandardScaler)
-
-💾 Model Saving/Loading:
-joblib
-
-📊 Streamlit App:
-streamlit as st
-
-io (for handling in-memory file streams)
-
-json (for training history visualization)
-
-Optional / Utility:
-os (for file path handling)
-
-warnings (to suppress warnings)
