@@ -6,7 +6,6 @@ tensorflow
 scikit-learn
 joblib
 streamlit
-os
 io
 json
 warnings
