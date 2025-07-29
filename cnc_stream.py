@@ -10,13 +10,12 @@ import pickle
 st.set_page_config(page_title="Tool Wear Prediction", page_icon="🛠", layout="wide")
 
 def set_background():
+    
     st.markdown(
         """
         <style>
         .stApp {
-            background-image: url("https://images.unsplash.com/photo-1573497491208-6b1acb260507");
-            background-size: cover;
-            background-attachment: fixed;
+            background-color: #f5f5f5;
         }
         </style>
         """,
@@ -24,6 +23,8 @@ def set_background():
     )
 
 set_background()
+
+
 
 # 🔷 Load models
 @st.cache_resource
