@@ -157,32 +157,35 @@ elif choice == "Predict":
     # Reshape to match model input (1, sequence_length, 49)
         reshaped = np.reshape(scaled, (1, scaled.shape[0], scaled.shape[1]))
 
-    # Optional: Print or show shape for debugging
-        st.write("✅ Reshaped input shape:", reshaped.shape)
-
     # Now safe to predict
         tool_prob = tool_model.predict(reshaped, verbose=0)[0][0]
         tool_class = int(tool_prob > 0.4)
         tool_label = 'Worn' if tool_class else 'Unworn'
         confidence = tool_prob * 100 if tool_class else (1 - tool_prob) * 100
-        machining = "No"
-        visual = "Failed"    
+
+        # 🔄 Dynamic conditions based on experiment data
+        if input_df['clamp_pressure'].mean() > 6 and input_df['feedrate'].mean() > 80:
+            machining = "Yes"
+        else:
+            machining = "No"
+
+        # machining = "No"
+        # visual = "Failed"    
 
 
          # 🔷 Output Results
         st.subheader("📝 Prediction Results")
         st.success(f"🔧 Tool Condition: {tool_label} ({confidence:.2f}%)")
         st.info(f"🏭 Machining Finalized: {machining}")
-        st.warning(f"🔍 Visual Inspection: {visual}")
 
             # 🔷 Export Report
         report = {
             "Tool Condition": tool_label,
             "Confidence": f"{confidence:.2f}%",
             "Machining Finalized": machining,
-            "Visual Inspection": visual
+        
             }
-        st.download_button("⬇️ Download CSV", pd.DataFrame([report]).to_csv(index=False), file_name="report.csv")
+        
 
         pdf = FPDF()
         pdf.add_page()
